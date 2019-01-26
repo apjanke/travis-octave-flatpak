@@ -25,7 +25,6 @@ script:
   - which octave
   - file $(which octave)
   - ls -ld $(readlink $(which octave))
-  - ls -ld $(readlink $(readlink $(which octave)))
   - $OCTAVE --version
   - which mkoctfile
   - file $(which mkoctfile)
