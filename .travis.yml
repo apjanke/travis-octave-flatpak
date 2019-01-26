@@ -1,0 +1,39 @@
+language: c
+
+matrix:
+  include:
+    - os: linux
+      dist: xenial
+      env: 
+        - dist="Xenial 16.x"
+    - os: linux
+      dist: trusty
+      env:
+        - dist="Trusty 14.x"
+
+install:
+  - ./dev-tools/install-octave-flatpak.sh
+
+script:
+  # Diagnostics
+  - echo BASH version=$BASH_VERSION
+  - echo PATH=$PATH
+  - ls -l ~/bin
+  - ls -ld ~/bin
+  - echo now PATH=$PATH
+  - cat ~/.bashrc
+  - cat ~/.bash_profile
+  - cat ~/.profile
+  - echo now PATH=$PATH
+  - which octave
+  - file $(which octave)
+  - ls -ld $(readlink $(which octave))
+  - octave --version
+  - which mkoctfile
+  - file $(which mkoctfile)
+  - ls -ld $(readlink $(which mkoctfile))
+  - mkoctfile --version
+  - then find /var/lib/flatpak/app/org.octave.Octave -name octave -o -name mkoctfile
+  # Basic test
+  - octave --eval "ver"
+  - octave --eval 'disp("Hello, world!");'
