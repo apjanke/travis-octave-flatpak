@@ -33,7 +33,7 @@ script:
   - file $(which mkoctfile)
   - ls -ld $(readlink $(which mkoctfile))
   - mkoctfile --version
-  - then find /var/lib/flatpak/app/org.octave.Octave -name octave -o -name mkoctfile
+  - find /var/lib/flatpak/app/org.octave.Octave -name octave -o -name mkoctfile
   # Basic test
   - octave --eval "ver"
   - octave --eval 'disp("Hello, world!");'
