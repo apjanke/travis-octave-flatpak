@@ -6,10 +6,6 @@ matrix:
       dist: xenial
       env: 
         - dist="Xenial 16.x"
-    - os: linux
-      dist: trusty
-      env:
-        - dist="Trusty 14.x"
 
 install:
   - ./dev-tools/install-octave-flatpak.sh
