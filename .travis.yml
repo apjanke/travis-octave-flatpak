@@ -6,6 +6,7 @@ matrix:
       dist: xenial
       env: 
         - dist="Xenial 16.x"
+        - OCTAVE="flatpak run org.octave.Octave"
 
 install:
   - ./dev-tools/install-octave-flatpak.sh
@@ -32,5 +33,5 @@ script:
   - mkoctfile --version
   - find /var/lib/flatpak/app/org.octave.Octave -name octave -o -name mkoctfile
   # Basic test
-  - octave --eval "ver"
-  - octave --eval 'disp("Hello, world!");'
+  - $OCTAVE --no-gui --eval "ver"
+  - $OCTAVE --no-gui --eval 'disp("Hello, world!");'
