@@ -12,6 +12,8 @@ install:
   - ./dev-tools/install-octave-flatpak.sh
 
 script:
+  # Diagnostics
+  - echo OCTAVE=$OCTAVE
   # Basic test
   - $OCTAVE --no-gui --eval "ver"
   - $OCTAVE --no-gui --eval 'disp("Hello, world!");'
