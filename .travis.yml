@@ -6,7 +6,7 @@ matrix:
       dist: xenial
       env: 
         - dist="Xenial 16.x"
-        - OCTAVE="flatpak run org.octave.Octave"
+        - OCTAVE="sudo flatpak run org.octave.Octave"
 
 install:
   - ./dev-tools/install-octave-flatpak.sh
