@@ -12,25 +12,6 @@ install:
   - ./dev-tools/install-octave-flatpak.sh
 
 script:
-  # Diagnostics
-  - echo BASH version=$BASH_VERSION
-  - echo PATH=$PATH
-  - ls -l ~/bin
-  - ls -ld ~/bin
-  - echo now PATH=$PATH
-  - cat ~/.bashrc
-  - cat ~/.bash_profile
-  - cat ~/.profile
-  - echo now PATH=$PATH
-  - which octave
-  - file $(which octave)
-  - ls -ld $(readlink $(which octave))
-  - $OCTAVE --version
-  - which mkoctfile
-  - file $(which mkoctfile)
-  - ls -ld $(readlink $(which mkoctfile))
-  - mkoctfile --version
-  - find /var/lib/flatpak/app/org.octave.Octave -name octave -o -name mkoctfile
   # Basic test
   - $OCTAVE --no-gui --eval "ver"
   - $OCTAVE --no-gui --eval 'disp("Hello, world!");'
