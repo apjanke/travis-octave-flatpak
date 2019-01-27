@@ -12,7 +12,7 @@ if grep -i 'xenial\|trusty' /etc/lsb-release &>/dev/null; then
 fi
 sudo apt-get install --yes flatpak
 
-sudo flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+flatpak remote-add --user --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
 flatpak install --user -y flathub org.octave.Octave
 # Hack to get this flatpak octave and mkoctfile on the path
 octave_dir=$(flatpak info org.octave.Octave | grep Location | cut -d ":" -f 2 | cut -d " " -f 2)
